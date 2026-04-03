@@ -23,11 +23,11 @@ class ActorManager():
         )
         return [Actor(*row) for row in cursor]
 
-    def update(self, pk: int, first_name: str, last_name: str) -> None:
+    def update(self, pk: int, new_first_name: str, new_last_name: str) -> None:
         self._connection.execute(
-            f"UPDATE {self.table_name} SET first_name=?,"
-            f" last_name=? WHERE id=?",
-            (first_name, last_name, pk)
+            f"UPDATE {self.table_name} SET new_first_name=?,"
+            f" new_last_name=? WHERE id=?",
+            (new_first_name, new_last_name, pk)
         )
         self._connection.commit()
 
